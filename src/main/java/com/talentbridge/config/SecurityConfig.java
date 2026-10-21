@@ -68,6 +68,7 @@ public class SecurityConfig {
 
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/auth/**").permitAll()
+                .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                 .requestMatchers(HttpMethod.POST, "/candidates", "/recruiters").permitAll()
 
                 // Recruiter-only private listing must be matched before public job routes.
